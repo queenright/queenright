@@ -11,3 +11,7 @@ same question of a team of people and agents: **is it queenright?**
 
 This is a blueprint, not a product. It holds concepts, a policy schema and
 mappings to concrete platforms. It holds no runtime and no hosting code.
+
+## License
+
+[CC BY 4.0](LICENSE): share and adapt freely, with attribution to Queenright.
