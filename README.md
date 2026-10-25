@@ -1,3 +1,5 @@
+<img src="assets/logo/queenright-logo.svg" alt="Queenright logo" width="96">
+
 # Queenright
 
 Stable concepts for human–agent collaboration: identity, ownership, access and
