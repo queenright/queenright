@@ -1,4 +1,4 @@
-<img src="assets/logo/queenright-logo.svg" alt="Queenright logo" width="96">
+<img src="docs/assets/logo/queenright-logo.svg" alt="Queenright logo" width="96">
 
 # Queenright
 
