@@ -50,7 +50,7 @@ Where the field is still moving, these are fixed positions, not options.
 
 1. **Gate over instruction.** A rule counts only if it is enforced before the
    model sees anything. "Only take orders from X" in a prompt is advice: it can
-   be argued, tricked or injected away, and it fails silently.
+   be ignored, argued, tricked or injected away, and it fails silently.
 2. **Inbound counts as much as outbound.** Limiting what an agent may do is
    pointless if the wrong person can instruct it. Whoever can reach an agent
    effectively holds its permissions, and reach chains: if A may address B and
