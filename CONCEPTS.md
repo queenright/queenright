@@ -1,6 +1,6 @@
 # Concepts
 
-Platforms for running agents are young and change every quarter. The concepts
+Platforms for running agents are young and change with every release. The concepts
 below change in years. They are what independent platforms arrived at on their
 own, so they are what will still hold when today's tools are gone.
 
@@ -71,7 +71,7 @@ the damage when it does.
 
 Queenright owns two layers: the concepts (change in years) and the policy as
 config (changes per decision). The mappings to platforms, runtimes, harnesses
-and models change every quarter and belong to those platforms. Queenright
+and models change with every release and belong to those platforms. Queenright
 describes how each concept maps onto them; it does not rebuild what a platform
 already does well.
 
