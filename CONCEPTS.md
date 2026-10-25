@@ -1,5 +1,15 @@
 # Concepts
 
+**AI agents are joining the workforce. Most are still set up like tools, though they work like colleagues.**
+
+| As-is | Should-be |
+|---|---|
+| Everyone brings their own agents | Agents are brought into the team |
+| Agents act under a person's login | Agents operate under their own identity |
+| Rules are a line in the prompt | Rules are enforced outside the agent |
+| Nobody answers for an agent | Every agent has an accountable owner |
+| Agents are tools | **Agents are collaborators** |
+
 Platforms for running agents are young and change with every release. The concepts
 below change in years. They are what independent platforms arrived at on their
 own, so they are what will still hold when today's tools are gone.
