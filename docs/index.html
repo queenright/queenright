@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Queenright · Stable concepts for human–agent collaboration</title>
+<meta name="description" content="Stable concepts for human–agent collaboration: identity, ownership, access and interaction rules for agent teams, independent of any tool.">
+<link rel="icon" href="assets/logo/queenright-logo.svg" type="image/svg+xml">
+<meta property="og:title" content="Queenright">
+<meta property="og:description" content="Stable concepts for human–agent collaboration.">
+<meta property="og:image" content="https://queenright.org/assets/logo/queenright-logo-500.png">
+<style>
+:root {
+  --navy: #1F2A44; --honey: #F2A900; --slate: #8FA3C7; --white: #FFFFFF;
+  --ink: #1F2A44; --muted: #5B6680; --paper: #F7F8FB; --line: #DDE2EC;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font: 17px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color: var(--ink); background: var(--white); }
+a { color: inherit; }
+.wrap { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+section { padding: 72px 0; }
+section.alt { background: var(--paper); }
+h1, h2, h3 { line-height: 1.2; margin: 0 0 12px; }
+h2 { font-size: 30px; }
+h3 { font-size: 18px; }
+.lead { font-size: 19px; color: var(--muted); max-width: 720px; margin: 0 0 36px; }
+.kicker { font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 8px; }
+
+/* hero */
+header.hero { background: var(--navy); color: var(--white); padding: 88px 0 80px; }
+.hero .wrap { display: flex; gap: 40px; align-items: center; flex-wrap: wrap; }
+.hero img { width: 148px; height: 148px; }
+.hero h1 { font-size: 52px; letter-spacing: -.01em; margin-bottom: 8px; }
+.hero p { font-size: 22px; margin: 0; color: #D5DBE8; }
+.hero .sub { font-size: 16px; color: var(--slate); margin-top: 14px; }
+nav.top { display: flex; gap: 22px; flex-wrap: wrap; margin-top: 28px; font-size: 15px; }
+nav.top a { color: var(--white); text-decoration: none; border-bottom: 2px solid var(--honey); padding-bottom: 2px; }
+
+/* cards */
+.grid { display: grid; gap: 18px; }
+.g2 { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 700px) { .g2 { grid-template-columns: 1fr; } }
+.g3 { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.g5 { grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); }
+.card { background: var(--white); border: 1px solid var(--line); border-radius: 14px; padding: 22px; }
+section.alt .card { border-color: transparent; box-shadow: 0 1px 3px rgba(31,42,68,.08); }
+.card p { margin: 6px 0 0; color: var(--muted); font-size: 16px; }
+.num { display: inline-flex; width: 34px; height: 34px; border-radius: 50%; background: var(--navy); color: var(--white); align-items: center; justify-content: center; font-weight: 700; font-size: 15px; margin-bottom: 12px; }
+.num.honey { background: var(--honey); color: var(--navy); }
+.callout { margin-top: 28px; padding: 18px 22px; border-left: 4px solid var(--honey); background: #FFF8E6; border-radius: 0 10px 10px 0; font-weight: 600; }
+
+/* vision */
+.vision { font-size: 26px; line-height: 1.4; font-weight: 600; max-width: 820px; margin: 0 0 40px; }
+.vision em { font-style: normal; color: var(--honey); }
+.verb { font-weight: 700; font-size: 18px; }
+.loop { margin-top: 18px; color: var(--muted); font-size: 15px; }
+
+/* table */
+table { width: 100%; border-collapse: collapse; font-size: 15px; background: var(--white); border-radius: 12px; overflow: hidden; }
+th, td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { background: var(--navy); color: var(--white); font-weight: 600; }
+td:first-child { font-weight: 600; white-space: nowrap; }
+tr.gap td { background: #FFF8E6; }
+.scroll { overflow-x: auto; }
+@media (max-width: 640px) { td:first-child { white-space: normal; } th, td { padding: 10px; font-size: 14px; } }
+
+/* access */
+.access { display: grid; grid-template-columns: 1fr auto 1fr; gap: 18px; align-items: stretch; }
+.agent { align-self: center; width: 120px; height: 120px; border-radius: 22px; background: var(--navy); color: var(--white); display: flex; align-items: center; justify-content: center; font-weight: 700; }
+.side h3 { margin-bottom: 4px; }
+.side .q { color: var(--muted); margin: 0 0 12px; font-size: 15px; }
+.side ul { list-style: none; padding: 0; margin: 0; }
+.side li { padding: 6px 0; font-size: 16px; }
+.ok::before { content: "✓"; color: #2E8B57; font-weight: 700; margin-right: 10px; }
+.no::before { content: "✗"; color: #C0392B; font-weight: 700; margin-right: 10px; }
+.side .tag { margin-top: 14px; font-size: 13px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 10px; }
+.formula { text-align: center; font-size: 20px; font-weight: 700; margin-top: 30px; }
+@media (max-width: 760px) { .access { grid-template-columns: 1fr; } .agent { justify-self: center; } }
+
+/* instruction vs gate */
+.vs .card h3 { font-size: 20px; }
+.vs .quote { font-family: ui-monospace, Consolas, monospace; font-size: 14px; background: var(--paper); padding: 10px 12px; border-radius: 8px; margin: 10px 0; }
+.vs ul { margin: 10px 0 0; padding-left: 20px; color: var(--muted); font-size: 16px; }
+.vs .gate { border: 2px solid var(--honey); }
+
+/* layers */
+.layers { display: grid; gap: 12px; }
+.layer { display: grid; grid-template-columns: 190px 1fr; gap: 20px; align-items: center; padding: 20px 24px; border-radius: 14px; }
+.layer .when { font-size: 13px; text-transform: uppercase; letter-spacing: .08em; font-weight: 600; }
+.layer h3 { margin: 2px 0 0; font-size: 21px; }
+.layer p { margin: 0; }
+.l1 { background: var(--honey); color: var(--navy); }
+.l2 { background: var(--navy); color: var(--white); }
+.l2 p { color: #D5DBE8; }
+.l3 { background: #E6EBF4; color: var(--navy); border: 2px dashed var(--slate); }
+@media (max-width: 640px) { .layer { grid-template-columns: 1fr; gap: 6px; } }
+
+footer { background: var(--navy); color: #D5DBE8; padding: 40px 0; font-size: 15px; }
+footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; align-items: center; }
+footer a { color: var(--white); }
+footer img { width: 40px; height: 40px; vertical-align: middle; margin-right: 12px; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <img src="assets/logo/queenright-logo.svg" alt="Queenright logo">
+    <div>
+      <h1>Queenright</h1>
+      <p>Stable concepts for human–agent collaboration</p>
+      <p class="sub">Concepts and config, not product code.</p>
+      <nav class="top">
+        <a href="#why">Why</a><a href="#mission">Mission</a><a href="#concepts">Concepts</a>
+        <a href="#access">Access</a><a href="#rules">Rules</a><a href="#scope">Scope</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<section id="why">
+  <div class="wrap">
+    <div class="kicker">Why</div>
+    <h2>The landscape moves faster than any product</h2>
+    <p class="lead">Platforms for running agent teams are months old and change every quarter. Nothing in this space is mature yet.</p>
+    <div class="grid g3">
+      <div class="card"><h3>Buzz</h3><p>Pre-1.0. The agent runtime is moving into the app with 1.0.</p></div>
+      <div class="card"><h3>Paperclip</h3><p>Open source and very popular. Thousands of open issues, releases every few days.</p></div>
+      <div class="card"><h3>Microsoft Agent 365</h3><p>Generally available since 2026. Parts of Entra Agent ID are still in preview.</p></div>
+    </div>
+    <p class="callout">So the question is not which product, but what all of them arrived at independently. That is what will still hold next year.</p>
+  </div>
+</section>
+
+<section id="mission" class="alt">
+  <div class="wrap">
+    <div class="kicker">Vision &amp; mission</div>
+    <p class="vision">Every agent in a team is <em>known, owned, observable and reproducible</em>, from its first key to its last day, whatever runtime it runs on.</p>
+    <p class="lead">A human–agent team must be able to do five things:</p>
+    <div class="grid g5">
+      <div class="card"><div class="verb">See</div><p>Who exists, who owns whom, who answers whom.</p></div>
+      <div class="card"><div class="verb">Compose</div><p>An agent is a versioned template plus instance parameters.</p></div>
+      <div class="card"><div class="verb">Operate</div><p>Commission, change and decommission, with approval.</p></div>
+      <div class="card"><div class="verb">Observe</div><p>What actually happens: health, traces, feedback.</p></div>
+      <div class="card"><div class="verb">Govern</div><p>Identity, ownership, access and interaction rules.</p></div>
+    </div>
+    <p class="loop">↻ What is observed feeds the next version.</p>
+  </div>
+</section>
+
+<section id="concepts">
+  <div class="wrap">
+    <div class="kicker">The core</div>
+    <h2>Seven concepts every human–agent team needs</h2>
+    <p class="lead">Each part of the mission rests on one of them. Govern carries four of the seven, including the one most often missing.</p>
+    <div class="grid g3">
+      <div class="card"><div class="num">1</div><h3>Inventory</h3><p>You can't govern what you can't see. Every person, agent, owner relation and access path, in one place.</p></div>
+      <div class="card"><div class="num">2</div><h3>Own identity</h3><p>An agent is never a human's account. Its actions are distinguishable and revocable on their own.</p></div>
+      <div class="card"><div class="num honey">3</div><h3>Accountable human</h3><p>Every agent has an owner who answers for it. Ownership passes on when they leave; it never lapses.</p></div>
+      <div class="card"><div class="num">4</div><h3>Template vs. instance</h3><p>The definition is versioned, the instance runs it. Changing an agent means changing its template version.</p></div>
+      <div class="card"><div class="num">5</div><h3>Lifecycle with approval</h3><p>Commission, change, decommission through steps a human approves. Archive identities, never reassign them.</p></div>
+      <div class="card"><div class="num">6</div><h3>Least privilege</h3><p>Only what the task needs. Temporary grants are revoked when the task is done.</p></div>
+      <div class="card"><div class="num honey">7</div><h3>Interaction rules</h3><p>Who may address whom, which agents answer whom, when a human decides. The concept most often missing.</p></div>
+      <div class="card" style="background:var(--navy);color:var(--white);border:none"><h3>Across all seven</h3><p style="color:#D5DBE8">Every output traces back to an agent, a version and an owner.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="kicker">Mapping</div>
+    <h2>Same concepts, different names</h2>
+    <p class="lead">The concepts are mainstream. Only the names and the point of enforcement differ.</p>
+    <div class="scroll">
+    <table>
+      <tr><th>Concept</th><th>In Buzz</th><th>At Microsoft</th></tr>
+      <tr><td>1 Inventory</td><td>Agent registry, channel member lists</td><td>Agent 365 registry</td></tr>
+      <tr><td>2 Own identity</td><td>Nostr key + owner attestation (NIP-OA)</td><td>Entra Agent ID</td></tr>
+      <tr><td>3 Accountable human</td><td>Attested owner</td><td>Sponsor, falls back to manager</td></tr>
+      <tr><td>4 Template vs. instance</td><td>Agent definition / kit</td><td>Blueprint / agent identity</td></tr>
+      <tr><td>5 Lifecycle with approval</td><td>Owner-reviewed agent drafts</td><td>Entra lifecycle workflows</td></tr>
+      <tr><td>6 Least privilege</td><td>Channel membership + role</td><td>Access packages</td></tr>
+      <tr class="gap"><td>7 Interaction rules</td><td>Respond-to allowlist, subscription config</td><td>Largely open: left to the build tool</td></tr>
+    </table>
+    </div>
+  </div>
+</section>
+
+<section id="access">
+  <div class="wrap">
+    <div class="kicker">Access</div>
+    <h2>Access has two sides</h2>
+    <p class="lead">Identity and access management looks at what an agent may do. Just as important is who may tell it to.</p>
+    <div class="access">
+      <div class="card side">
+        <h3>Inbound</h3><p class="q">Who may instruct the agent?</p>
+        <ul><li class="ok">Owner</li><li class="ok">Project team</li><li class="ok">Agent B (allowlisted)</li><li class="no">Anyone else in the channel</li></ul>
+        <div class="tag">#7 Interaction rules · often missing</div>
+      </div>
+      <div class="agent">Agent</div>
+      <div class="card side">
+        <h3>Outbound</h3><p class="q">What may the agent do?</p>
+        <ul><li class="ok">Read the project repo</li><li class="ok">Open pull requests</li><li class="no">Customer mailbox</li><li class="no">Production secrets</li></ul>
+        <div class="tag">#6 Least privilege · where IAM focuses</div>
+      </div>
+    </div>
+    <p class="formula">Effective power = everyone who can reach the agent × everything it may do</p>
+  </div>
+</section>
+
+<section class="alt vs">
+  <div class="wrap">
+    <div class="kicker">Enforcement</div>
+    <h2>An instruction is advice, a gate is enforcement</h2>
+    <p class="lead">Whoever can talk to an agent effectively holds its permissions.</p>
+    <div class="grid g2">
+      <div class="card">
+        <h3>Instruction</h3>
+        <div class="quote">"Only take orders from your owner." (in the prompt)</div>
+        <ul><li>Lives inside the model's context</li><li>Can be argued, tricked or injected away</li><li>Fails silently</li></ul>
+      </div>
+      <div class="card gate">
+        <h3>Gate</h3>
+        <div class="quote">The harness drops events from anyone not on the list.</div>
+        <ul><li>Enforced before the model sees anything</li><li>Same rule for every model and harness</li><li>Visible and reviewable as config</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">Interaction rules</div>
+    <h2>Why interaction rules matter</h2>
+    <div class="grid g2" style="margin-top:28px">
+      <div class="card"><div class="num">1</div><h3>Permissions follow reachability</h3><p>Limiting what an agent may access is pointless if the wrong person can instruct it.</p></div>
+      <div class="card"><div class="num">2</div><h3>Agent edges chain</h3><p>If A may talk to B and B to C, A reaches C. Each edge is an escalation path and a loop risk.</p>
+        <svg viewBox="0 0 300 70" width="100%" style="max-width:300px;margin-top:12px" role="img" aria-label="A reaches C through B">
+          <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#1F2A44"/></marker></defs>
+          <path d="M60,30 H120" stroke="#1F2A44" stroke-width="2.5" marker-end="url(#ar)"/>
+          <path d="M180,30 H240" stroke="#1F2A44" stroke-width="2.5" marker-end="url(#ar)"/>
+          <path d="M46,49 Q150,96 250,52" stroke="#F2A900" stroke-width="2.5" fill="none" stroke-dasharray="6 5" marker-end="url(#ar)"/>
+          <g font-weight="700" font-size="16" text-anchor="middle" fill="#fff">
+            <circle cx="40" cy="30" r="20" fill="#1F2A44"/><text x="40" y="36">A</text>
+            <circle cx="150" cy="30" r="20" fill="#1F2A44"/><text x="150" y="36">B</text>
+            <circle cx="260" cy="30" r="20" fill="#1F2A44"/><text x="260" y="36">C</text>
+          </g>
+        </svg>
+      </div>
+      <div class="card"><div class="num">3</div><h3>Accountability needs a known trigger</h3><p>An owner can only answer for actions that someone was allowed to trigger.</p></div>
+      <div class="card"><div class="num">4</div><h3>Agents have no hallway instinct</h3><p>People don't take orders from strangers. Agents need the rule written down.</p></div>
+    </div>
+    <p class="callout">Necessary, not sufficient: content that reaches an agent indirectly (threads, files, web pages) still gets in. Least privilege limits the damage when it does.</p>
+  </div>
+</section>
+
+<section id="rules" class="alt">
+  <div class="wrap">
+    <div class="kicker">Opinionated</div>
+    <h2>Five rules</h2>
+    <p class="lead">Where the field is still moving, these are fixed positions, not options.</p>
+    <div class="grid g3">
+      <div class="card"><div class="num honey">1</div><h3>Gate over instruction</h3><p>A rule counts only if it is enforced before the model sees anything.</p></div>
+      <div class="card"><div class="num honey">2</div><h3>Inbound counts as much as outbound</h3><p>Whoever can reach an agent effectively holds its permissions, and reach chains.</p></div>
+      <div class="card"><div class="num honey">3</div><h3>No agent without an accountable human</h3><p>Ownership passes on. Identities are archived, never reassigned.</p></div>
+      <div class="card"><div class="num honey">4</div><h3>Derived data is never typed by hand</h3><p>If a system already knows it, read it from there. Only intent is declared.</p></div>
+      <div class="card"><div class="num honey">5</div><h3>Policy is versioned config, reviewed by the owner</h3><p>Rules, templates, grants and owners live in version control. A prompt is not policy.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="scope">
+  <div class="wrap">
+    <div class="kicker">Scope</div>
+    <h2>A stable core, a mapping that changes</h2>
+    <p class="lead">Queenright owns the top two layers. The bottom layer belongs to the platforms.</p>
+    <div class="layers">
+      <div class="layer l1"><div><div class="when">Changes in years</div><h3>Concepts</h3></div><p>The seven concepts, plus traceability.</p></div>
+      <div class="layer l2"><div><div class="when">Changes per decision</div><h3>Policy as config</h3></div><p>Respond-to matrix, templates, grants, owners. Versioned, reviewed by the owner.</p></div>
+      <div class="layer l3"><div><div class="when">Changes every quarter</div><h3>Mappings</h3></div><p>Platforms (Buzz, Microsoft, Paperclip) · runtimes (host, Docker, Kubernetes) · harnesses (Copilot, Claude, Goose) · models.</p></div>
+    </div>
+    <h2 style="margin-top:64px">A blueprint, not a product</h2>
+    <p class="lead">No runtime, no hosting, no dashboard product. Where a platform already does something well, we map to it.</p>
+    <div class="grid g5" style="grid-template-columns:repeat(auto-fit,minmax(210px,1fr))">
+      <div class="card"><div class="num">1</div><h3>Write it down</h3><p><a href="https://github.com/queenright/queenright/blob/main/CONCEPTS.md">CONCEPTS.md</a>: one page, one paragraph per concept.</p></div>
+      <div class="card"><div class="num">2</div><h3>Policy as config</h3><p>The respond-to matrix as versioned config, first.</p></div>
+      <div class="card"><div class="num">3</div><h3>Map it</h3><p>Buzz first, then Microsoft.</p></div>
+      <div class="card"><div class="num">4</div><h3>Code goes upstream</h3><p>Fleet view, archiving, lifecycle: offered to the platforms, not rebuilt here.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div><img src="assets/logo/queenright-logo.svg" alt="">Queenright · Stable concepts for human–agent collaboration</div>
+    <div><a href="https://github.com/queenright/queenright">github.com/queenright</a></div>
+  </div>
+</footer>
+
+</body>
+</html>
