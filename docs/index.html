@@ -82,11 +82,24 @@ tr.gap td { background: #FFF8E6; }
 .formula { text-align: center; font-size: 20px; font-weight: 700; margin-top: 30px; }
 @media (max-width: 760px) { .access { grid-template-columns: 1fr; } .agent { justify-self: center; } }
 
+/* as-is vs should-be */
+.shift { padding: 56px 0; }
+.shift h2 { font-size: 26px; max-width: 760px; margin-bottom: 28px; }
+.shift .rows { display: grid; grid-template-columns: 1fr 32px 1fr; gap: 10px 0; align-items: stretch; }
+.shift .head { font-size: 13px; letter-spacing: .12em; text-transform: uppercase; font-weight: 600; color: var(--muted); padding: 0 16px 4px; }
+.shift .asis, .shift .shouldbe { padding: 12px 16px; border-radius: 10px; font-size: 16px; }
+.shift .asis { background: var(--paper); color: var(--muted); }
+.shift .shouldbe { background: #FFF6DE; border-left: 4px solid var(--honey); color: var(--ink); font-weight: 600; }
+.shift .arrow { display: flex; align-items: center; justify-content: center; color: var(--honey); font-weight: 700; }
+.shift .last { font-size: 18px; padding: 14px 16px; margin-top: 6px; }
+.shift .shouldbe.last { background: var(--honey); color: var(--navy); border-left-color: var(--navy); }
+.shift .arrow.last { margin-top: 6px; padding: 0; }
+@media (max-width: 700px) { .shift .rows { grid-template-columns: 1fr 24px 1fr; } .shift .asis, .shift .shouldbe { font-size: 14px; padding: 10px 12px; } }
 /* instruction vs gate */
 .vs .card h3 { font-size: 20px; }
 .vs .quote { font-family: ui-monospace, Consolas, monospace; font-size: 14px; background: var(--paper); padding: 10px 12px; border-radius: 8px; margin: 10px 0; }
 .vs ul { margin: 10px 0 0; padding-left: 20px; color: var(--muted); font-size: 16px; }
-.vs .gate { border: 2px solid var(--honey); }
+.vs .card.gate { border: 2px solid var(--honey); }
 
 /* layers */
 .layers { display: grid; gap: 12px; }
@@ -114,7 +127,7 @@ footer img { width: 40px; height: 40px; vertical-align: middle; margin-right: 12
     <div>
       <h1>Queenright</h1>
       <p>Stable concepts for human–agent collaboration</p>
-      <p class="sub">Concepts and config, not product code.</p>
+      <p class="sub">Concepts, not product code.</p>
       <nav class="top">
         <a href="#why">Why</a><a href="#mission">Mission</a><a href="#concepts">Concepts</a>
         <a href="#access">Access</a><a href="#rules">Rules</a><a href="#scope">Scope</a>
@@ -122,6 +135,20 @@ footer img { width: 40px; height: 40px; vertical-align: middle; margin-right: 12
     </div>
   </div>
 </header>
+
+<section class="shift">
+  <div class="wrap">
+    <h2>AI agents are joining the workforce. Most are still set up like tools, though they work like colleagues.</h2>
+    <div class="rows">
+      <div class="head">As-is</div><div></div><div class="head">Should-be</div>
+      <div class="asis">Everyone brings their own agents</div><div class="arrow">→</div><div class="shouldbe">Agents are brought into the team</div>
+      <div class="asis">Agents act under a person&rsquo;s login</div><div class="arrow">→</div><div class="shouldbe">Agents operate under their own identity</div>
+      <div class="asis">Rules are a line in the prompt</div><div class="arrow">→</div><div class="shouldbe">Rules are enforced outside the agent</div>
+      <div class="asis">Nobody answers for an agent</div><div class="arrow">→</div><div class="shouldbe">Every agent has an accountable owner</div>
+      <div class="asis last">Agents are tools</div><div class="arrow last">→</div><div class="shouldbe last">Agents are collaborators</div>
+    </div>
+  </div>
+</section>
 
 <section id="why">
   <div class="wrap">
