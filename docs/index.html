@@ -236,11 +236,11 @@ footer img { width: 40px; height: 40px; vertical-align: middle; margin-right: 12
     <div class="grid g2" style="margin-top:28px">
       <div class="card"><div class="num">1</div><h3>Permissions follow reachability</h3><p>Limiting what an agent may access is pointless if the wrong person can instruct it.</p></div>
       <div class="card"><div class="num">2</div><h3>Agent edges chain</h3><p>If A may talk to B and B to C, A reaches C. Each edge is an escalation path and a loop risk.</p>
-        <svg viewBox="0 0 300 70" width="100%" style="max-width:300px;margin-top:12px" role="img" aria-label="A reaches C through B">
-          <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#1F2A44"/></marker></defs>
+        <svg viewBox="0 0 300 92" width="100%" style="max-width:300px;margin-top:12px" role="img" aria-label="A reaches C through B">
+          <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#1F2A44"/></marker><marker id="ah" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#F2A900"/></marker></defs>
           <path d="M60,30 H120" stroke="#1F2A44" stroke-width="2.5" marker-end="url(#ar)"/>
           <path d="M180,30 H240" stroke="#1F2A44" stroke-width="2.5" marker-end="url(#ar)"/>
-          <path d="M46,49 Q150,96 250,52" stroke="#F2A900" stroke-width="2.5" fill="none" stroke-dasharray="6 5" marker-end="url(#ar)"/>
+          <path d="M40,52 Q150,112 254,54" stroke="#F2A900" stroke-width="2.5" fill="none" stroke-dasharray="6 5" marker-end="url(#ah)"/>
           <g font-weight="700" font-size="16" text-anchor="middle" fill="#fff">
             <circle cx="40" cy="30" r="20" fill="#1F2A44"/><text x="40" y="36">A</text>
             <circle cx="150" cy="30" r="20" fill="#1F2A44"/><text x="150" y="36">B</text>
@@ -249,7 +249,7 @@ footer img { width: 40px; height: 40px; vertical-align: middle; margin-right: 12
         </svg>
       </div>
       <div class="card"><div class="num">3</div><h3>Accountability needs a known trigger</h3><p>An owner can only answer for actions that someone was allowed to trigger.</p></div>
-      <div class="card"><div class="num">4</div><h3>Agents have no hallway instinct</h3><p>People don't take orders from strangers. Agents need the rule written down.</p></div>
+      <div class="card"><div class="num">4</div><h3>Agents have no hallway instinct</h3><p>People don't take orders from strangers. Agents do, unless a gate stops them.</p></div>
     </div>
     <p class="callout">Necessary, not sufficient: content that reaches an agent indirectly (threads, files, web pages) still gets in. Least privilege limits the damage when it does.</p>
   </div>
