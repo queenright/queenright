@@ -48,6 +48,10 @@ section.alt .card { border-color: transparent; box-shadow: 0 1px 3px rgba(31,42,
 .card p { margin: 6px 0 0; color: var(--muted); font-size: 16px; }
 .num { display: inline-flex; width: 34px; height: 34px; border-radius: 50%; background: var(--navy); color: var(--white); align-items: center; justify-content: center; font-weight: 700; font-size: 15px; margin-bottom: 12px; }
 .num.honey { background: var(--honey); color: var(--navy); }
+.card:has(> .num) { display: grid; grid-template-columns: 34px 1fr; column-gap: 12px; align-content: start; }
+.card:has(> .num) > .num { margin: 0; align-self: center; }
+.card:has(> .num) > h3 { margin: 0; align-self: center; }
+.card:has(> .num) > :not(.num, h3) { grid-column: 1 / -1; margin-top: 10px; }
 .callout { margin-top: 28px; padding: 18px 22px; border-left: 4px solid var(--honey); background: #FFF8E6; border-radius: 0 10px 10px 0; font-weight: 600; }
 
 /* vision */
