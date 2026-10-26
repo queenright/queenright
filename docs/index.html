@@ -156,9 +156,9 @@ footer img { width: 40px; height: 40px; vertical-align: middle; margin-right: 12
     <h2>The landscape moves faster than any product</h2>
     <p class="lead">Platforms for running agent teams are months old and change with every release. Nothing in this space is mature yet.</p>
     <div class="grid g3">
-      <div class="card"><h3>Buzz</h3><p>Pre-1.0. The agent runtime is moving into the app with 1.0.</p></div>
-      <div class="card"><h3>Paperclip</h3><p>Open source and very popular. Thousands of open issues, releases every few days.</p></div>
       <div class="card"><h3>Microsoft Agent 365</h3><p>Generally available since 2026. Parts of Entra Agent ID are still in preview.</p></div>
+      <div class="card"><h3>Paperclip</h3><p>Open source and very popular. Thousands of open issues, releases every few days.</p></div>
+      <div class="card"><h3>Buzz</h3><p>Pre-1.0. The agent runtime is moving into the app with 1.0.</p></div>
     </div>
     <p class="callout">So the question is not which product, but what all of them arrived at independently. That is what will still hold next year.</p>
   </div>
@@ -205,14 +205,14 @@ footer img { width: 40px; height: 40px; vertical-align: middle; margin-right: 12
     <p class="lead">The concepts are mainstream. Only the names and the point of enforcement differ.</p>
     <div class="scroll">
     <table>
-      <tr><th>Concept</th><th>In Buzz</th><th>At Microsoft</th></tr>
-      <tr><td>1 Inventory</td><td>Agent registry, channel member lists</td><td>Agent 365 registry</td></tr>
-      <tr><td>2 Own identity</td><td>Nostr key + owner attestation (NIP-OA)</td><td>Entra Agent ID</td></tr>
-      <tr><td>3 Accountable human</td><td>Attested owner</td><td>Sponsor, falls back to manager</td></tr>
-      <tr><td>4 Template vs. instance</td><td>Agent definition / kit</td><td>Blueprint / agent identity</td></tr>
-      <tr><td>5 Lifecycle with approval</td><td>Owner-reviewed agent drafts</td><td>Entra lifecycle workflows</td></tr>
-      <tr><td>6 Least privilege</td><td>Channel membership + role</td><td>Access packages</td></tr>
-      <tr class="gap"><td>7 Interaction rules</td><td>Respond-to allowlist, subscription config</td><td>Largely open: left to the build tool</td></tr>
+      <tr><th>Concept</th><th>At Microsoft</th><th>In Buzz</th></tr>
+      <tr><td>1 Inventory</td><td>Agent 365 registry</td><td>Agent registry, channel member lists</td></tr>
+      <tr><td>2 Own identity</td><td>Entra Agent ID</td><td>Nostr key + owner attestation (NIP-OA)</td></tr>
+      <tr><td>3 Accountable human</td><td>Sponsor, falls back to manager</td><td>Attested owner</td></tr>
+      <tr><td>4 Template vs. instance</td><td>Blueprint / agent identity</td><td>Agent definition / kit</td></tr>
+      <tr><td>5 Lifecycle with approval</td><td>Entra lifecycle workflows</td><td>Owner-reviewed agent drafts</td></tr>
+      <tr><td>6 Least privilege</td><td>Access packages</td><td>Channel membership + role</td></tr>
+      <tr class="gap"><td>7 Interaction rules</td><td>Largely open: left to the build tool</td><td>Respond-to allowlist, subscription config</td></tr>
     </table>
     </div>
   </div>
@@ -308,16 +308,16 @@ footer img { width: 40px; height: 40px; vertical-align: middle; margin-right: 12
     <p class="lead">Queenright owns the top two layers. The bottom layer belongs to the platforms.</p>
     <div class="layers">
       <div class="layer l1"><div><div class="when">Changes in years</div><h3>Concepts</h3></div><p>The seven concepts, plus traceability.</p></div>
-      <div class="layer l2"><div><div class="when">Changes per decision</div><h3>Policy as config</h3></div><p>Respond-to matrix, templates, grants, owners. Versioned, reviewed by the owner.</p></div>
-      <div class="layer l3"><div><div class="when">Changes with every release</div><h3>Mappings</h3></div><p>Platforms (Buzz, Microsoft, Paperclip) · runtimes (host, Docker, Kubernetes) · harnesses (Copilot, Claude, Goose) · models.</p></div>
+      <div class="layer l2"><div><div class="when">Changes per decision</div><h3>Policy</h3></div><p>Respond-to matrix, templates, grants, owners. Versioned, reviewed by the owner.</p></div>
+      <div class="layer l3"><div><div class="when">Changes with every release</div><h3>Mappings</h3></div><p>Platforms (Microsoft, Paperclip, Buzz) · runtimes (host, Docker, Kubernetes) · harnesses (Copilot, Claude, Goose) · models.</p></div>
     </div>
-    <h2 style="margin-top:64px">A blueprint, not a product</h2>
-    <p class="lead">No runtime, no hosting, no dashboard product. Where a platform already does something well, we map to it.</p>
+    <h2 style="margin-top:64px">Where it goes from here</h2>
+    <p class="lead">Concepts first, tested in practice before the next step. Where a platform already does something well, Queenright builds on it rather than next to it.</p>
     <div class="grid g5" style="grid-template-columns:repeat(auto-fit,minmax(210px,1fr))">
-      <div class="card"><div class="num">1</div><h3>Write it down</h3><p><a href="https://github.com/queenright/queenright/blob/main/CONCEPTS.md">CONCEPTS.md</a>: one page, one paragraph per concept.</p></div>
-      <div class="card"><div class="num">2</div><h3>Policy as config</h3><p>The respond-to matrix as versioned config, first.</p></div>
-      <div class="card"><div class="num">3</div><h3>Map it</h3><p>Buzz first, then Microsoft.</p></div>
-      <div class="card"><div class="num">4</div><h3>Code goes upstream</h3><p>Fleet view, archiving, lifecycle: offered to the platforms, not rebuilt here.</p></div>
+      <div class="card"><div class="num">1</div><h3>Read the concepts</h3><p><a href="https://github.com/queenright/queenright/blob/main/CONCEPTS.md">CONCEPTS.md</a>: one page, one paragraph per concept.</p></div>
+      <div class="card"><div class="num">2</div><h3>Check your own team</h3><p>Is every agent listed? Does it have its own identity and an owner? Who may instruct it? Any “no” is a gap.</p></div>
+      <div class="card"><div class="num">3</div><h3>Close the gate first</h3><p>Find out who can reach your agents, then enforce it in the harness, not in the prompt. That is the gap most setups have.</p></div>
+      <div class="card"><div class="num">4</div><h3>Tell us what you find</h3><p>How does your platform cover the seven concepts? Post it in <a href="https://github.com/queenright/queenright/discussions">GitHub Discussions</a>.</p></div>
     </div>
   </div>
 </section>
