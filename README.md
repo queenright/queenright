@@ -5,6 +5,8 @@
 Stable concepts for human–agent collaboration: identity, ownership, access and
 interaction rules for agent teams, independent of any tool.
 
+Website: [queenright.org](https://queenright.org)
+
 **AI agents are joining the workforce. Most are still set up like tools, though they work like colleagues.**
 
 | As-is | Should-be |
