@@ -19,9 +19,8 @@ interaction rules for agent teams, independent of any tool.
 complete, in order, working. The opposite is *queenless*. This project asks the
 same question of a team of people and agents: **is it queenright?**
 
-This is a blueprint, not a product. It holds concepts you can apply
-today, on any platform. Where it goes from here, practice will show. It holds
-no runtime and no hosting code.
+It holds concepts you can apply today, on any platform. Where it goes
+from here, practice will show.
 
 ## License
 
